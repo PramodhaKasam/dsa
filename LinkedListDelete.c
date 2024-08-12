@@ -1,3 +1,6 @@
+//Delete a node from the linkedlist at a) The beginning
+//                                     b) The end
+//                                     c) A specified position
 #include <stdio.h>
 #include <stdlib.h>
 
