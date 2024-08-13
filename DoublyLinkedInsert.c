@@ -1,6 +1,7 @@
 // Insertion in a doubly linked list at 1) beginning
                                         // 2) end
-                                        // 3) position specified     
+                                        // 3) position specified at   
+                                        // 4 ) position specified after
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -80,19 +81,56 @@ void InsertAtSpecified()
     newnode = (struct node *)malloc(sizeof(struct node));
     int i= 1;
     int n;
-    printf("\nEnter the position to insert:");
+    printf("\nEnter the position to insert at:");
+    scanf("%d", &n);
+    if(n != 0)
+    {
+        printf("Enter the value to be inserted at the position %d:", n);
+        scanf("%d", &newnode -> data);
+        while(i != n-1)
+        {
+            temp = temp -> next;
+            i++;
+        }
+        newnode -> next = temp -> next;
+        newnode -> prev = temp;
+        temp -> next -> prev = newnode;
+        temp -> next = newnode;
+    }
+    else{
+        InsertAtBeginning();
+    }
+    
+}
+
+void InsertAfterSpecified()
+{
+    struct node *temp, *newnode;
+    temp = head;
+    newnode = (struct node *)malloc(sizeof(struct node));
+    int i= 1;
+    int n;
+    printf("\nEnter the position to insert after:");
     scanf("%d", &n);
     printf("Enter the value to be inserted at the position %d:", n);
     scanf("%d", &newnode -> data);
-    while(i != n-1)
+    while(i != n)
     {
         temp = temp -> next;
         i++;
     }
-    newnode -> next = temp -> next;
-    newnode -> prev = temp;
-    temp -> next -> prev = newnode;
-    temp -> next = newnode;
+    if( temp -> next == 0)
+    {
+        newnode ->prev = temp;
+        temp -> next = newnode;
+        newnode -> next = 0;
+    }
+    else{
+        newnode -> next = temp -> next;
+        newnode -> prev = temp;
+        temp -> next -> prev = newnode;
+        temp -> next = newnode;
+    }
 }
 
 int main() {
@@ -106,6 +144,8 @@ int main() {
     InsertAtEnd();
     Display();
     InsertAtSpecified();
+    Display();
+    InsertAfterSpecified();
     Display();
     return 0;
 }
