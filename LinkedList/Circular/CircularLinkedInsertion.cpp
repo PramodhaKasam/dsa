@@ -111,6 +111,7 @@ void InsertAtSpecified(Node** head, int x)
         while(count != n-1)
         {
             temp = temp -> next;
+            count++;
         }
         newnode -> next = temp -> next;
         temp -> next = newnode;
