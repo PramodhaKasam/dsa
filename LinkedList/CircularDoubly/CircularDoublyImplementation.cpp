@@ -1,4 +1,4 @@
-// Implementation of Doubly circular linked list
+// Implementation of Doubly circulsr linked list
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -29,6 +29,8 @@ void createList(Node** head, int n)
         if(*head == 0)
         {
             *head = temp = newnode;
+            (*head) -> next = *head;
+            (*head) -> prev = *head;
         }
         else{
             temp -> next = newnode;
