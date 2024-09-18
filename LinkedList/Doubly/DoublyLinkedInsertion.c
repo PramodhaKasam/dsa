@@ -54,6 +54,7 @@ void InsertAtBeginning()
     printf("\nEnter the data to be inserted at the beginning:");
     scanf("%d",&newnode ->data);
     newnode -> next = head;
+    head->prev = newnode;
     newnode ->prev = 0;
     head = newnode;
 }
