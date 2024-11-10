@@ -1,4 +1,4 @@
-// Implementation of queue uisng stack
+// Implementation of queue using stack
 #include <bits/stdc++.h>
 using namespace std;
 #define size 5
