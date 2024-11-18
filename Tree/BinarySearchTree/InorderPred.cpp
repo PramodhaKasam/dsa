@@ -16,44 +16,31 @@ node* createNode(int val)
 	return temp;
 }
 
-int rightmost(node* root)
+void inorder(node* root, int arr[], int& i)
 {
-	node* temp = root;
-	while(root ->right != NULL)
-		temp = temp->right;
-	return temp->data;
+	if(root != NULL)
+	{
+		inorder(root->left, arr, i);
+		arr[i++] = root->data;
+		inorder(root->right, arr, i);	
+	}
 }
 
-int inordPred(node* root, int val)
+int inordPred(node* root, int val, int size)
 {
-	if(root == NULL)return -1;
+	int arr[size];
+	int index = 0;
+	inorder(root, arr, index);
 	
-	if(root ->data == val)
-		return rightmost(root ->left);
-	
-	node* pred = NULL;
-	node* curr = root;
-	
-	while(curr != NULL)
+	if(arr[0] == val)
+		return -1;
+	for(int i=1; i<size; i++)
 	{
-		if(curr ->data > val)
-			curr = curr ->left;
-		
-		else if(curr ->data < val)
-		{
-			pred = curr;
-			curr = curr ->right;
-		}
-		
-		else
-			break;
+		if(arr[i] == val)
+			return arr[i-1];
 	}
-	if(pred)
-	 return pred->data;
-	else
-	 return -1;
-} 
- 
+}
+  
 int main() {
     node* root;
     root  = createNode(10);
@@ -62,6 +49,8 @@ int main() {
     root->right->left = createNode(12); 
     root ->right->right = createNode(20);
     
-    cout<< inordPred(root, 1);
+    cout<< inordPred(root, 15, 5);
     return 0;
 }
+
+
