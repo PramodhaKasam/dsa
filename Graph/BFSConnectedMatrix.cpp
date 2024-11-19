@@ -1,4 +1,4 @@
-//Transpose of connected graph in adjacency matrix
+//BFS of connected graph in adjacency matrix
 #include <bits/stdc++.h>
 using namespace std;
 
