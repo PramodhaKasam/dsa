@@ -34,6 +34,8 @@ The order for reference:-
       * Counting sort
       * Radix sort
 ## Heap
+  * Array implementation
+  * Linked list implementation
 ## Tree
   * Binary Tree
   * Binary Search Tree
