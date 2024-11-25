@@ -17,7 +17,7 @@ The order for reference:-
       * Circular
       * Normal
   * Linked List implementation
-## Deque  
+### Deque  
 ## Search
   * Binary Search
   * Fibonacci Search
